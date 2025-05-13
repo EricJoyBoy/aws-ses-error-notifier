@@ -1,0 +1,18 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: AWS::Serverless-2016-10-31
+
+Resources:
+  SesNotifierFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      CodeUri: target/aws-ses-error-notifier.jar
+      Handler: com.example.notifier.LambdaSesNotifier::handleRequest
+      Runtime: java11
+      Environment:
+        Variables:
+          MAIL_SOURCE: !Ref NotificationEmail
+          MAIL_DESTINATIONS: !Ref DestinationEmails
+          MAIL_SUBJECT: "Processing Error Notification"
+      Policies:
+        - AWSLambdaBasicExecutionRole
+        - AmazonSESFullAccess
