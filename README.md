@@ -4,6 +4,9 @@
 
 A serverless solution for handling message processing failures by sending formatted email notifications via Amazon SES.
 
+## Disclaimer 
+This code is the result of some intense Vibe Coding, so the most part of the boilerplate code is AI generated.
+
 ## 📋 Overview
 
 This AWS Lambda function automatically sends detailed error notifications via email when message processing fails in:
@@ -23,3 +26,6 @@ graph TD
     B --> C[EmailComposer]
     C --> D[SesMailer]
     D --> E[Amazon SES]
+
+
+
