@@ -1,12 +1,13 @@
 package com.notifier;
 
 import com.notifier.exception.ConfigurationException;
+import lombok.Data;
 
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 import java.util.regex.Pattern;
-
+@Data
 public final class ConfigurationValidator {
     private static final String EMAIL_REGEX = "^[A-Za-z0-9+_.-]+@([A-Za-z0-9-]+\\.)+[A-Za-z]{2,}$";
     private static final Pattern EMAIL_PATTERN = Pattern.compile(EMAIL_REGEX);
@@ -63,19 +64,6 @@ public final class ConfigurationValidator {
         });
     }
 
-    // Getters
-    public String getMailSource() {
-        return mailSource;
-    }
 
-    public String getMailSubject() {
-        return mailSubject;
-    }
-
-    public List<String> getMailDestinations() {
-        return mailDestinations;
-    }
-
-    // Custom Exception
 
 }
